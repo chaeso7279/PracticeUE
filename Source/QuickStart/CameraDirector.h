@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "CameraSturcts.h"
 #include "CameraDirector.generated.h"
 
 UCLASS()
@@ -27,13 +28,12 @@ public:
 	/*UPROPERTY(EditAnywhere)
 	AActor* camOne;
 	UPROPERTY(EditAnywhere)
-	AActor* camTwo;
+	AActor* camTwo;*/
 	UPROPERTY(EditAnywhere)
 	float timeToNextCameraChange;
-	*/
 	
 	UPROPERTY(EditAnywhere)
-	TArray<A*> arrCameras;
+	TArray<FCameraStruct> arrCameras;
 
 	int8 idxCurCam;
 };

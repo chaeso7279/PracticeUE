@@ -39,6 +39,27 @@ void ACameraDirector::Tick(float DeltaTime)
 			controller->SetViewTargetWithBlend(camTwo, timeSmoothBlend);
 	}*/
 	
-	arrCameras[idxCurCam]->timeTo
-}
+	FCameraStruct curCamData = arrCameras[idxCurCam];
 
+	timeToNextCameraChange -= DeltaTime;
+	if (timeToNextCameraChange <= 0.f)
+	{
+		timeToNextCameraChange += curCamData.timeChangeCamera;
+		
+		APlayerController* controller = UGameplayStatics::GetPlayerController(this, 0);
+		if (controller)
+		{
+			if (curCamData.Camera != nullptr && controller->GetViewTarget() != curCamData.Camera)
+			{
+				if (curCamData.timeSmoothBlend <= 0.f) // 전환 블렌딩 적용 X일 때
+					controller->SetViewTarget(curCamData.Camera);
+				else // 전환 블렌딩 적용할 때
+					controller->SetViewTargetWithBlend(curCamData.Camera, curCamData.timeSmoothBlend);
+				
+				++idxCurCam;
+				if (idxCurCam >= arrCameras.Num())
+					idxCurCam = 0;
+			}
+		}
+	}
+}
