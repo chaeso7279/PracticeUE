@@ -33,6 +33,15 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 public:
+	void MoveXAxis(float AxisValue);
+	void MoveYAxis(float AxisValue);
+	void Move(float DeltaTime);
+
+	void StartGrowing();
+	void StopGrowing();
+	void Growing(float DeltaTime);
+
+public:
 	/*
 		USceneComponent: 트랜스폼 정보를 갖고 있음, 월드에 배치할 수 있는 다른 컴포넌트들의 부모클래스
 						 매우 가볍기 때문에(충돌, 렌더링 지원X) 계층구조에서 더미로 사용하기 좋음
@@ -40,4 +49,8 @@ public:
 	UPROPERTY(EditAnywhere)
 	USceneComponent* ourVisibleComponent;
 
+	FVector curVelocity;
+	bool bGrowing;
+
+	float inputTime;
 };
