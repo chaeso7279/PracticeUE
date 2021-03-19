@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "CollidingPawnMovementComponent.h"
@@ -8,16 +8,16 @@ void UCollidingPawnMovementComponent::TickComponent(float DeltaTime, enum ELevel
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
 
 	/*
-		PawnOwner: ÀÌ ÄÄÆ÷³ÍÆ®¸¦ ¼ÒÀ¯ÇÏ°í ÀÖ´Â Æù
-		UpdatedComponent: UMovementComponent¿¡ ¼ÓÇÑ º¯¼ö, ÀÌ ¹«ºê¸ÕÆ® ÄÄÆ÷³ÍÆ®°¡ ÀÌµ¿½ÃÅ°°í ¾÷µ¥ÀÌÆ® ÇØ¾ßÇÒ ÄÄÆ÷³ÍÆ®
-		ShouldSkipUpdate: ÀÌµ¿µÈ ÄÄÆ÷³ÍÆ®°¡ ÀÌµ¿ÇÒ ¼ö ¾ø°Å³ª, ·»´õ¸µ µÇÁö ¾ÊÀº °æ¿ìÀÎÁö ÆÇº°ÇØÁÜ 
+		PawnOwner: ì´ ì»´í¬ë„ŒíŠ¸ë¥¼ ì†Œìœ í•˜ê³  ìˆëŠ” í°
+		UpdatedComponent: UMovementComponentì— ì†í•œ ë³€ìˆ˜, ì´ ë¬´ë¸Œë¨¼íŠ¸ ì»´í¬ë„ŒíŠ¸ê°€ ì´ë™ì‹œí‚¤ê³  ì—…ë°ì´íŠ¸ í•´ì•¼í•  ì»´í¬ë„ŒíŠ¸
+		ShouldSkipUpdate: ì´ë™ëœ ì»´í¬ë„ŒíŠ¸ê°€ ì´ë™í•  ìˆ˜ ì—†ê±°ë‚˜, ë Œë”ë§ ë˜ì§€ ì•Šì€ ê²½ìš°ì¸ì§€ íŒë³„í•´ì¤Œ 
 	*/
-	if (!PawnOwner || !UpdatedComponent || ShouldSkipUpdate(DeltaTime)) // => Áï, ÀÌµ¿°¡´ÉÇÑ »óÅÂÀÎÁö ¿©ºÎ
+	if (!PawnOwner || !UpdatedComponent || ShouldSkipUpdate(DeltaTime)) // => ì¦‰, ì´ë™ê°€ëŠ¥í•œ ìƒíƒœì¸ì§€ ì—¬ë¶€
 		return;
 
 	/*
-		ConsumeInputVector(): ÀÔ·ÂµÈ ÀÌµ¿ º¤ÅÍ¸¦ °¡Á®¿È
-		SafeMoveUpdatedComponent(): UE ÇÇÁ÷½º¸¦ ÀÌ¿ë -> Àå¾Ö¹°À» ÇÇÇØ pawn ¹«ºê¸ÕÆ® ÄÄÆ÷³ÍÆ®¸¦ ÀÌµ¿½ÃÄÑÁÜ
+		ConsumeInputVector(): ì…ë ¥ëœ ì´ë™ ë²¡í„°ë¥¼ ê°€ì ¸ì˜´
+		SafeMoveUpdatedComponent(): UE í”¼ì§ìŠ¤ë¥¼ ì´ìš© -> ì¥ì• ë¬¼ì„ í”¼í•´ pawn ë¬´ë¸Œë¨¼íŠ¸ ì»´í¬ë„ŒíŠ¸ë¥¼ ì´ë™ì‹œì¼œì¤Œ
 	*/
 	FVector DesiredMovementThisFrame = ConsumeInputVector().GetClampedToMaxSize(1.f) * DeltaTime * 150.f;
 	if (!DesiredMovementThisFrame.IsNearlyZero())
@@ -25,9 +25,9 @@ void UCollidingPawnMovementComponent::TickComponent(float DeltaTime, enum ELevel
 		FHitResult Hit;
 		SafeMoveUpdatedComponent(DesiredMovementThisFrame, UpdatedComponent->GetComponentRotation(), true, Hit);
 		
-		if (Hit.IsValidBlockingHit()) // Ãæµ¹ÀÌ ¹ß»ıÇßÀ» °æ¿ì
+		if (Hit.IsValidBlockingHit()) // ì¶©ëŒì´ ë°œìƒí–ˆì„ ê²½ìš°
 		{
-			// Ãæµ¹Ã¼ÀÇ Ç¥¸éÀ» Å¸°í ¹Ì²ô·¯Áö¸ç ÀÌµ¿ÇÏµµ·Ï ÇÔ
+			// ì¶©ëŒì²´ì˜ í‘œë©´ì„ íƒ€ê³  ë¯¸ë„ëŸ¬ì§€ë©° ì´ë™í•˜ë„ë¡ í•¨
 			SlideAlongSurface(DesiredMovementThisFrame, 1.f - Hit.Time, Hit.Normal, Hit);
 		}
 	}

@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "CollidingPawn.h"
@@ -14,11 +14,11 @@ ACollidingPawn::ACollidingPawn()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	// USphereComponent: ±¸ ÇüÅÂÀÇ Ãæµ¹Ã¼ / ´«¿¡ º¸ÀÌÁö X
+	// USphereComponent: êµ¬ í˜•íƒœì˜ ì¶©ëŒì²´ / ëˆˆì— ë³´ì´ì§€ X
 	USphereComponent* collSphere = CreateDefaultSubobject<USphereComponent>(TEXT("RootComponent"));
 	RootComponent = collSphere;
 	collSphere->InitSphereRadius(40.f);
-	collSphere->SetCollisionProfileName(TEXT("Pawn")); // ÀÌ ÄÄÆ÷³ÍÆ®°¡ °¡Áø Äİ¸®Á¯ÀÌ ¾î¶² Äİ¸®Á¯°úÀÇ Ãæµ¹À» °¨ÁöÇÒ °ÍÀÎÁö ¼³Á¤ 
+	collSphere->SetCollisionProfileName(TEXT("Pawn")); // ì´ ì»´í¬ë„ŒíŠ¸ê°€ ê°€ì§„ ì½œë¦¬ì ¼ì´ ì–´ë–¤ ì½œë¦¬ì ¼ê³¼ì˜ ì¶©ëŒì„ ê°ì§€í•  ê²ƒì¸ì§€ ì„¤ì • 
 
 	UStaticMeshComponent* meshSphere = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshSphere"));
 	meshSphere->SetupAttachment(RootComponent);
@@ -32,13 +32,13 @@ ACollidingPawn::ACollidingPawn()
 
 	ourParticleSystem = CreateDefaultSubobject<UParticleSystemComponent>(TEXT("OurParticleSystem"));
 	ourParticleSystem->SetupAttachment(RootComponent);
-	ourParticleSystem->bAutoActivate = false; // ÀÚµ¿½ÇÇà X
+	ourParticleSystem->bAutoActivate = false; // ìë™ì‹¤í–‰ X
 	ourParticleSystem->SetRelativeLocation(FVector(-20.f, 0.f, 20.f));
 	static ConstructorHelpers::FObjectFinder<UParticleSystem> ParticleAsset(TEXT("/Game/StarterContent/Particles/P_Fire.P_Fire"));
 	if (ParticleAsset.Succeeded())
 		ourParticleSystem->SetTemplate(ParticleAsset.Object);
 
-	// USpringArmComponent: Ä³¸¯ÅÍ¸¦ ´À¸®°Ô µû¶ó°¡´Â Ä«¸Ş¶ó or Ä³¸¯ÅÍ°¡ º®À» ¶ÕÁö ¾Ê°ÔÇØÁÖ´Â ±â´É Á¦°ø
+	// USpringArmComponent: ìºë¦­í„°ë¥¼ ëŠë¦¬ê²Œ ë”°ë¼ê°€ëŠ” ì¹´ë©”ë¼ or ìºë¦­í„°ê°€ ë²½ì„ ëš«ì§€ ì•Šê²Œí•´ì£¼ëŠ” ê¸°ëŠ¥ ì œê³µ
 	USpringArmComponent* springArm = CreateDefaultSubobject<USpringArmComponent>(TEXT("CameraAttachmentArm"));
 	springArm->SetupAttachment(RootComponent);
 	springArm->SetRelativeRotation(FRotator(-45.f, 0.f, 0.f));
@@ -46,15 +46,15 @@ ACollidingPawn::ACollidingPawn()
 	springArm->bEnableCameraLag = true;
 	springArm->CameraLagSpeed = 3.f;
 
-	// SpringArm¿¡ ºÙÀÏ Ä«¸Ş¶ó »ı¼º
+	// SpringArmì— ë¶™ì¼ ì¹´ë©”ë¼ ìƒì„±
 	UCameraComponent* cameraCmp = CreateDefaultSubobject<UCameraComponent>(TEXT("ActualCamera"));
-	cameraCmp->SetupAttachment(springArm, USpringArmComponent::SocketName); // SpringArm¿¡ ³»ÀåµÈ ¼ÒÄÏ¿¡ ºÎÂø
+	cameraCmp->SetupAttachment(springArm, USpringArmComponent::SocketName); // SpringArmì— ë‚´ì¥ëœ ì†Œì¼“ì— ë¶€ì°©
 
 	ourMovementCmp = CreateDefaultSubobject<UCollidingPawnMovementComponent>(TEXT("OurMovementComponent"));
-	ourMovementCmp->UpdatedComponent = RootComponent; // MoveCmp°¡ RootCmp¸¦ µû¶ó ¾÷µ¥ÀÌÆ® µÇµµ·Ï ¼³Á¤
+	ourMovementCmp->UpdatedComponent = RootComponent; // MoveCmpê°€ RootCmpë¥¼ ë”°ë¼ ì—…ë°ì´íŠ¸ ë˜ë„ë¡ ì„¤ì •
 
 
-	AutoPossessPlayer = EAutoReceiveInput::Player0; // ±âº» ÇÃ·¹ÀÌ¾îÀÇ ÀÔ·Â¹ŞÀ½
+	AutoPossessPlayer = EAutoReceiveInput::Player0; // ê¸°ë³¸ í”Œë ˆì´ì–´ì˜ ì…ë ¥ë°›ìŒ
 }
 
 // Called when the game starts or when spawned
@@ -76,7 +76,7 @@ void ACollidingPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputCompo
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	// ÀÔ·Â ¸ÅÇÎ ¹ÙÀÎµù
+	// ì…ë ¥ ë§¤í•‘ ë°”ì¸ë”©
 	InputComponent->BindAction("ParticleToggle", IE_Pressed, this, &ACollidingPawn::ParticleToggle);
 
 	InputComponent->BindAxis("MoveForward", this, &ACollidingPawn::MoveFoward);

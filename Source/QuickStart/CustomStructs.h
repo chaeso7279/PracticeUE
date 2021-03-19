@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -16,16 +16,16 @@ public:
 };
 
 /*
-	Atomic: ÇØ´ç ±¸Á¶Ã¼°¡ Ç×»ó ÇÏ³ªÀÇ ´ÜÀ§·Î Á÷·ÄÈ­ µÊ
-			µğÅ×ÀÏ Ã¢¿¡¼­ ±¸Á¶Ã¼°¡ Ç¥½ÃµÇ°í, ¼öÁ¤°¡´ÉÇÏµµ·Ï ÇÏ·Á¸é Atomic¸¸ »ç¿ëÇÏ¸é µÊ (Atomic / EditAnywhere)·Î ¼³Á¤
-			±¸Á¶Ã¼°¡ µğÅ×ÀÏ Ã¢¿¡¼­ Ç¥½ÃµÇÁö ¾Ê°í, ÄÚµå or ºíÇÁ¿¡¼­¸¸ »ç¿ëµÇ±æ ¿øÇÏ¸é Atomic »©¹ö¸®±â (BlueprintType / BlueprintReadWrite)·Î ¼³Á¤
+	Atomic: í•´ë‹¹ êµ¬ì¡°ì²´ê°€ í•­ìƒ í•˜ë‚˜ì˜ ë‹¨ìœ„ë¡œ ì§ë ¬í™” ë¨
+			ë””í…Œì¼ ì°½ì—ì„œ êµ¬ì¡°ì²´ê°€ í‘œì‹œë˜ê³ , ìˆ˜ì •ê°€ëŠ¥í•˜ë„ë¡ í•˜ë ¤ë©´ Atomicë§Œ ì‚¬ìš©í•˜ë©´ ë¨ (Atomic / EditAnywhere)ë¡œ ì„¤ì •
+			êµ¬ì¡°ì²´ê°€ ë””í…Œì¼ ì°½ì—ì„œ í‘œì‹œë˜ì§€ ì•Šê³ , ì½”ë“œ or ë¸”í”„ì—ì„œë§Œ ì‚¬ìš©ë˜ê¸¸ ì›í•˜ë©´ Atomic ë¹¼ë²„ë¦¬ê¸° (BlueprintType / BlueprintReadWrite)ë¡œ ì„¤ì •
 */
 USTRUCT(Atomic, BlueprintType)
 struct FCustomStruct
 {
 	GENERATED_USTRUCT_BODY()
 public: 
-	/* Æ÷ÀÎÅÍ ¸â¹ö ±íº¹, ¾èº¹ ÁÖÀÇ */
+	/* í¬ì¸í„° ë©¤ë²„ ê¹Šë³µ, ì–•ë³µ ì£¼ì˜ */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	AActor* actor;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)

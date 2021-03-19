@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "CameraDirector.h"
@@ -51,9 +51,9 @@ void ACameraDirector::Tick(float DeltaTime)
 		{
 			if (curCamData.Camera != nullptr && controller->GetViewTarget() != curCamData.Camera)
 			{
-				if (curCamData.timeSmoothBlend <= 0.f) // ÀüÈ¯ ºí·»µù Àû¿ë XÀÏ ¶§
+				if (curCamData.timeSmoothBlend <= 0.f) // ì „í™˜ ë¸”ë Œë”© ì ìš© Xì¼ ë•Œ
 					controller->SetViewTarget(curCamData.Camera);
-				else // ÀüÈ¯ ºí·»µù Àû¿ëÇÒ ¶§
+				else // ì „í™˜ ë¸”ë Œë”© ì ìš©í•  ë•Œ
 					controller->SetViewTargetWithBlend(curCamData.Camera, curCamData.timeSmoothBlend);
 				
 				++idxCurCam;

@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -26,7 +26,7 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	// Á÷Á¢ ¸¸µç MovementComponent¸¦ ¹İÈ¯ÇÏµµ·Ï º¯°æ
+	// ì§ì ‘ ë§Œë“  MovementComponentë¥¼ ë°˜í™˜í•˜ë„ë¡ ë³€ê²½
 	virtual UPawnMovementComponent* GetMovementComponent() const override;
 
 public:

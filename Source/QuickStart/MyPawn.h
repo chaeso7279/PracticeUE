@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 #pragma once
 
@@ -7,8 +7,8 @@
 #include "MyPawn.generated.h"
 
 /*
-	Pawn Å¬·¡½º:
-	ÇÃ·¹ÀÌ¾î È¤Àº AIÀÇ ÄÁÆ®·Ñ·¯°¡ ¿¬°áµÇ¾î Á¦¾î¹Şµµ·Ï ÇÏ´Â Å¬·¡½º
+	Pawn í´ë˜ìŠ¤:
+	í”Œë ˆì´ì–´ í˜¹ì€ AIì˜ ì»¨íŠ¸ë¡¤ëŸ¬ê°€ ì—°ê²°ë˜ì–´ ì œì–´ë°›ë„ë¡ í•˜ëŠ” í´ë˜ìŠ¤
 */
 
 
@@ -43,8 +43,8 @@ public:
 
 public:
 	/*
-		USceneComponent: Æ®·£½ºÆû Á¤º¸¸¦ °®°í ÀÖÀ½, ¿ùµå¿¡ ¹èÄ¡ÇÒ ¼ö ÀÖ´Â ´Ù¸¥ ÄÄÆ÷³ÍÆ®µéÀÇ ºÎ¸ğÅ¬·¡½º
-						 ¸Å¿ì °¡º±±â ¶§¹®¿¡(Ãæµ¹, ·»´õ¸µ Áö¿øX) °èÃş±¸Á¶¿¡¼­ ´õ¹Ì·Î »ç¿ëÇÏ±â ÁÁÀ½
+		USceneComponent: íŠ¸ëœìŠ¤í¼ ì •ë³´ë¥¼ ê°–ê³  ìˆìŒ, ì›”ë“œì— ë°°ì¹˜í•  ìˆ˜ ìˆëŠ” ë‹¤ë¥¸ ì»´í¬ë„ŒíŠ¸ë“¤ì˜ ë¶€ëª¨í´ë˜ìŠ¤
+						 ë§¤ìš° ê°€ë³ê¸° ë•Œë¬¸ì—(ì¶©ëŒ, ë Œë”ë§ ì§€ì›X) ê³„ì¸µêµ¬ì¡°ì—ì„œ ë”ë¯¸ë¡œ ì‚¬ìš©í•˜ê¸° ì¢‹ìŒ
 	*/
 	UPROPERTY(EditAnywhere)
 	USceneComponent* ourVisibleComponent;

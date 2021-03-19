@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "MyPawn.h"
@@ -10,7 +10,7 @@ AMyPawn::AMyPawn()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	// °ÔÀÓÀÌ ½ÃÀÛµÇ¸é ÀÚµ¿À¸·Î ÇÃ·¹ÀÌ¾îÀÇ ÀÔ·ÂÀÌ ¿¬°áµÇµµ·ÏÇÔ
+	// ê²Œì„ì´ ì‹œì‘ë˜ë©´ ìë™ìœ¼ë¡œ í”Œë ˆì´ì–´ì˜ ì…ë ¥ì´ ì—°ê²°ë˜ë„ë¡í•¨
 	AutoPossessPlayer = EAutoReceiveInput::Player0;
 
 	RootComponent = CreateDefaultSubobject<USceneComponent>(TEXT("Root Component"));
@@ -18,7 +18,7 @@ AMyPawn::AMyPawn()
 	UCameraComponent* ourCamera = CreateDefaultSubobject<UCameraComponent>(TEXT("OurCamera"));
 	ourCamera->SetupAttachment(RootComponent);
 	
-	// RootComponent¸¦ ±â¹İÀ¸·ÎÇÑ À§Ä¡ ¹× È¸Àü ¼³Á¤
+	// RootComponentë¥¼ ê¸°ë°˜ìœ¼ë¡œí•œ ìœ„ì¹˜ ë° íšŒì „ ì„¤ì •
 	ourCamera->SetRelativeLocation(FVector(-250.f, 0.f, 250.f));
 	ourCamera->SetRelativeRotation(FRotator(-45.f, 0.f, 0.f));
 
@@ -47,7 +47,7 @@ void AMyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
-	// ÇÔ¼ö - ÀÔ·Â ¹ÙÀÎµù
+	// í•¨ìˆ˜ - ì…ë ¥ ë°”ì¸ë”©
 	PlayerInputComponent->BindAction("Grow", IE_Pressed, this, &AMyPawn::StartGrowing);
 	PlayerInputComponent->BindAction("Grow", IE_Released, this, &AMyPawn::StopGrowing);
 
@@ -57,7 +57,7 @@ void AMyPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 
 void AMyPawn::MoveXAxis(float AxisValue)
 {
-	// Clamp »ç¿ë ÀÌÀ¯: ÀÔ·Â Å°°¡ µÎ°³ ÀÌ»ó ÁöÁ¤µÇ¾î ÀÖÀ» ¶§, ¹è·Î ÀÔ·ÂÀÌ µé¾î¿À´Â °æ¿ì¸¦ ¸·±â À§ÇÔ
+	// Clamp ì‚¬ìš© ì´ìœ : ì…ë ¥ í‚¤ê°€ ë‘ê°œ ì´ìƒ ì§€ì •ë˜ì–´ ìˆì„ ë•Œ, ë°°ë¡œ ì…ë ¥ì´ ë“¤ì–´ì˜¤ëŠ” ê²½ìš°ë¥¼ ë§‰ê¸° ìœ„í•¨
 	curVelocity.X = FMath::Clamp(AxisValue, -1.f, 1.f) * 100.f;
 }
 
@@ -96,7 +96,7 @@ void AMyPawn::Growing(float DeltaTime)
 	FVector curScale = ourVisibleComponent->GetComponentScale();
 	if (bGrowing)
 	{
-		if (inputTime > 0.f && inputTime <= 0.5f) // ´©¸¥ Á÷ÈÄÀÏ °æ¿ì
+		if (inputTime > 0.f && inputTime <= 0.5f) // ëˆ„ë¥¸ ì§í›„ì¼ ê²½ìš°
 			curScale.Z = 2.f;
 		else
 			curScale.Z += DeltaTime;

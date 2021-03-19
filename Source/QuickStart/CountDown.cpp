@@ -1,4 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+ï»¿// Fill out your copyright notice in the Description page of Project Settings.
 
 
 #include "CountDown.h"
@@ -34,7 +34,7 @@ void ACountDown::AdvanceTimer()
 	--countDownTime;
 	UpdateTimerDisplay();
 
-	if (countDownTime < 1) // TimeÀÌ 0ÀÌ µÊ
+	if (countDownTime < 1) // Timeì´ 0ì´ ë¨
 	{
 		GetWorldTimerManager().ClearTimer(countDownTimerHandle);
 		CountDownHasFinished();

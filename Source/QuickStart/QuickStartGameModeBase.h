@@ -14,4 +14,16 @@ class QUICKSTART_API AQuickStartGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 	
+public:
+	UFUNCTION(BlueprintCallable, Category = "UMG_Game")
+	void ChangeMenuWidget(TSubclassOf<UUserWidget> NewWidgetClass);
+
+protected:
+	virtual void BeginPlay() override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "UMG_Game")
+	TSubclassOf<UUserWidget> StartingWidgetClass;
+	
+	UPROPERTY()
+	UUserWidget* CurrentWidget;
 };
